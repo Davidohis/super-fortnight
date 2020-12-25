@@ -8,7 +8,8 @@ class Monster extends Component {
         super()
 
         this.state = {
-            monsters: []
+            monsters: [],
+            searchField: ''
         }
     }
 
@@ -19,14 +20,14 @@ class Monster extends Component {
     }
    
     searchChange = (event) => {
-     return
+     return console.log(event)
     }
   
     render() {
         const Monster = this.state.monsters;
         return (
             <div className="monster">
-                <Search />
+                <Search searchChange={this.searchChange} />
                 <CardList Monster={Monster} />
             </div>
         )
