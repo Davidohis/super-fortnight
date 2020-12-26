@@ -1,6 +1,4 @@
-
 import React from "react";
-import './monster.css';
 
 const Card = ({ id, name, email }) => {
   return (

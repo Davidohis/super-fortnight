@@ -5,8 +5,8 @@ function CardList (props) {
     return (
         <>
                 {
-                 props.Monster.map(({ id, name, email}) => {
-                   return <Card key={id} name={name} email={email} />
+                 props.monster.map(({ id, name, email}) => {
+                   return <Card key={id} id={id} name={name} email={email} />
                  })
                 }  
         </>
