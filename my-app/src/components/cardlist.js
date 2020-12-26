@@ -1,12 +1,13 @@
 import React from 'react'
+import Card from './card';
 
 function CardList (props) {
     return (
         <>
                 {
-                 props.Monster.map(({ id, name, email}) => (
-                   <h2 key={id}>{name}</h2>
-                 ))
+                 props.Monster.map(({ id, name, email}) => {
+                   return <Card key={id} name={name} email={email} />
+                 })
                 }  
         </>
     )

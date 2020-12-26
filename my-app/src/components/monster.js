@@ -20,15 +20,18 @@ class Monster extends Component {
     }
    
     searchChange = (event) => {
-     return console.log(event)
+     return this.setState({ searchField: event.target.value })
     }
   
     render() {
-        const Monster = this.state.monsters;
+        const { monsters, searchField } = this.state;
+        const filter = monsters.filter((robot) => {
+          return robot.name.toLowerCase().includes(searchField.toLowerCase());
+        })
         return (
             <div className="monster">
                 <Search searchChange={this.searchChange} />
-                <CardList Monster={Monster} />
+                <CardList Monster={monsters} />
             </div>
         )
     }
