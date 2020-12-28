@@ -4,14 +4,18 @@ import './index.css';
 import App from './App';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {createLogger} from 'redux-logger'
 
-import { searchReducer } from './components/redux/reducer';
+import { searchReducer, fetchReducer } from './components/redux/reducer';
 
-const store = createStore(searchReducer, applyMiddleware(thunkMiddleware,logger));
+const rootReducer = combineReducers({ searchReducer, fetchReducer })
+
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware,logger));
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode> 
      <Provider store={store}>
          <App />
      </Provider>
