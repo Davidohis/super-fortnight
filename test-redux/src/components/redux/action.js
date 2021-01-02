@@ -6,9 +6,17 @@ export const setSearchAction = (text) => ({
     payload: text
 })
 
-export const fetchDataAction = () => (dispatch) => {
+export const fetchDataAction = () => async (dispatch) => {
     dispatch({ type: REQUEST_SEARCH_PENDDING })
     fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((data) => dispatch({ type: REQUEST_SEARCH_SUCCESS, payload: data }))
+    .catch((error) => dispatch({ type: REQUEST_SEARCH_FAILED, payload: error }))
+}
+
+export const shopDataAction = () => async (dispatch) => {
+    dispatch({ type: REQUEST_SEARCH_PENDDING })
+    fetch(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
     .then((response) => response.json())
     .then((data) => dispatch({ type: REQUEST_SEARCH_SUCCESS, payload: data }))
     .catch((error) => dispatch({ type: REQUEST_SEARCH_FAILED, payload: error }))

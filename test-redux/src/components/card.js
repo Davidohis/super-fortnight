@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Card = ({ id, name, email }) => {
   return (
@@ -7,6 +8,8 @@ const Card = ({ id, name, email }) => {
         <div>
           <h2> {name} </h2> 
           <p> {email} </p>
+
+          <Link to={`/shop/${id}`}> View more </Link>
         </div>
       </div>
   );
