@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-
 export default function Items({ match }) {
    useEffect(() => {
-       fetchItem();
+       fetchItem()
        console.log(match)
    },[])
 
@@ -15,8 +14,7 @@ export default function Items({ match }) {
         console.log(data)
         setItem(data)
     }
-
-
+    
     return (
         <div>
             <h1>{item.name}</h1>

@@ -1,4 +1,5 @@
 import React from "react";
+import "tachyons";
 import { Link } from 'react-router-dom';
 
 const Card = ({ id, name, email }) => {
